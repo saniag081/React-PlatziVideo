@@ -12,11 +12,28 @@ const App = () => (
         <Header></Header>
         <Search></Search>
 
-        <Categories>
+        <Categories title="Mi Lista">
             <Carousel>
                 <CarouselItems />
                 <CarouselItems />
                 <CarouselItems />
+                <CarouselItems />
+                <CarouselItems />
+                <CarouselItems />
+            </Carousel>
+        </Categories>
+
+
+        <Categories title="Tendencias">
+            <Carousel>
+                <CarouselItems />
+                <CarouselItems />
+            </Carousel>
+        </Categories>
+
+
+        <Categories title="Originales de Plazi Video">
+            <Carousel>
                 <CarouselItems />
             </Carousel>
         </Categories>
