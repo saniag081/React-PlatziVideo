@@ -9,7 +9,9 @@ import '../assets/styles/App.scss';
 
 const App = () => {
     //state
-    const [ videos, setVideos ] = useState([]);
+    const [ videos, setVideos ] = useState({
+        mylist: [], trends: [], originals: []
+    });
 
     //consumir API
     useEffect( () => {
@@ -26,29 +28,29 @@ const App = () => {
             <Header></Header>
             <Search></Search>
 
-            <Categories title="Mi Lista">
-                <Carousel>
-                    <CarouselItems />
-                    <CarouselItems />
-                    <CarouselItems />
-                    <CarouselItems />
-                    <CarouselItems />
-                    <CarouselItems />
-                </Carousel>
-            </Categories>
+            {videos.mylist.length > 0 &&
+                <Categories tlitle="Mi Lista">
+                    <Carousel>
+                        <CarouselItems />
+                    </Carousel>
+                </Categories>
+            }
 
 
             <Categories title="Tendencias">
                 <Carousel>
-                    <CarouselItems />
-                    <CarouselItems />
+                    {videos.trends.map( item => 
+                        <CarouselItems key={item.id} {...item}/>
+                    )}
                 </Carousel>
             </Categories>
 
 
             <Categories title="Originales de Plazi Video">
                 <Carousel>
-                    <CarouselItems />
+                    {videos.originals.map( item => 
+                        <CarouselItems key={item.id} {...item} />
+                    )}
                 </Carousel>
             </Categories>
 
