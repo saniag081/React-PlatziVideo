@@ -5,23 +5,13 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItems from '../components/CarouselItems';
 import Footer from '../components/Footer';
+import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
+const API = 'http://localhost:3000/initalState';
+
 const App = () => {
-    //state
-    const [ videos, setVideos ] = useState({
-        mylist: [], trends: [], originals: []
-    });
-
-    //consumir API
-    useEffect( () => {
-        fetch('http://localhost:3000/initalState')
-            .then(response => response.json())
-            .then( data => setVideos(data));
-    },[]);
-    //^ escuchar propiedad que pueda cambiar
-
-    console.log(videos);
+    const videos = useInitialState(API);
 
     return( 
         <div className="App">
