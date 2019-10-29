@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
@@ -21,7 +21,9 @@ const App = () => {
             {videos.mylist.length > 0 &&
                 <Categories tlitle="Mi Lista">
                     <Carousel>
-                        <CarouselItems />
+                        {videos.mylist.map( item =>
+                            <CarouselItems key={item.id} {...item}/>
+                        )}
                     </Carousel>
                 </Categories>
             }
