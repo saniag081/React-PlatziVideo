@@ -1,10 +1,8 @@
 import React from 'react';
-import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItems from '../components/CarouselItems';
-import Footer from '../components/Footer';
 import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
@@ -14,8 +12,7 @@ const Home = () => {
     const videos = useInitialState(API);
 
     return( 
-        <div className="App">
-            <Header></Header>
+        <React.Fragment>
             <Search></Search>
 
             {videos.mylist.length > 0 &&
@@ -46,8 +43,7 @@ const Home = () => {
                 </Carousel>
             </Categories>
 
-            <Footer />
-        </div>
+        </React.Fragment>
     );
 }
 
